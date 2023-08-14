@@ -4,7 +4,7 @@ source as (
   select * from raw.stripe.payment
 ),
 
-renamed as (
+staged as (
   
   select
       id as payment_id,
@@ -18,4 +18,4 @@ renamed as (
   from source
 )
 
-select * from renamed
+select * from staged
