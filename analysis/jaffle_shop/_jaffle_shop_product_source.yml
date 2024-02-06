@@ -5,4 +5,4 @@ sources:
     database: raw  
     schema: jaffle_shop  
     tables:
-      - name: orders
+      - name: products
