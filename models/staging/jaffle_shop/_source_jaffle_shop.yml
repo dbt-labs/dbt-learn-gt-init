@@ -5,6 +5,6 @@ sources:
     database: raw
     schema: jaffle_shop
     tables:
-      - name: customers
+      - name: customers 
       - name: orders
       - name: products
