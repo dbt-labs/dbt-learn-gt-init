@@ -24,8 +24,5 @@ models:
     columns:
       - name: sku
         tests:
-          - unique:
-              config:
-                where: "product_type = 'jaffle'"
-
+          - unique
           - not_null
