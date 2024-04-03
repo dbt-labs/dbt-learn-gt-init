@@ -17,7 +17,7 @@ models:
               values:
                 - "returned"
                 - "completed"
-                - "pending"
+                - "return_pending"
                 - "placed"
                 - "shipped"
   - name: stg_jaffle_shop__products

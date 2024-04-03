@@ -9,7 +9,7 @@ source as (
 renamed as (
 
     select
-        amount,
+        {{ cents_to_dollars('amount') }} as amount_usd,
         created,
         id,
         orderid,
