@@ -1,3 +1,9 @@
+{{
+    config(
+        tags='nightly'
+    )
+}}
+
 with 
 
 source as (
