@@ -32,3 +32,6 @@ models:
               - returned
               - placed
               - return_pending
+    - name: order_date
+      data_tests:
+        - date_greater_than_2017
