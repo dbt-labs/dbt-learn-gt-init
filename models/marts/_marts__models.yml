@@ -1,0 +1,8 @@
+models:
+  - name: dim_customers
+    group: marketing
+    access: public
+
+  - name: fct_orders
+    group: marketing
+    access: public
