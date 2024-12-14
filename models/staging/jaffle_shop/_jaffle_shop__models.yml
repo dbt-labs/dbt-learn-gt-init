@@ -1,6 +1,8 @@
 models:
 - name: stg_jaffle_shop__customers
   description: Staged customer data from our jaffle shop app.
+  group: marketing
+  access: private
   columns:
     - name: customer_id
       description: The primary key for customers.
@@ -11,6 +13,8 @@ models:
 
 - name: stg_jaffle_shop__orders
   description: Staged order data from our jaffle shop app.
+  group: marketing
+  access: private
   columns:
     - name: order_id
       description: Primary key for orders.
@@ -32,3 +36,6 @@ models:
               - returned
               - placed
               - return_pending
+    - name: order_date
+      data_tests:
+        - date_greater_than_2017
