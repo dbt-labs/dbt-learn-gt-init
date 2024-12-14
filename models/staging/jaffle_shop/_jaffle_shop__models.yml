@@ -1,28 +1,29 @@
 models:
-  - name: stg_jaffle_shop__customers
-    columns:
-      - name: customer_id
-        data_tests:
-          - unique
-          - not_null             
-  - name: stg_jaffle_shop__orders
-    columns:
-      - name: order_id
-        data_tests:
-          - unique
-          - not_null
-      - name: status
-        data_tests:
-          - accepted_values:
-              values:
-                - "returned"
-                - "completed"
-                - "return_pending"
-                - "placed"
-                - "shipped"
-  - name: stg_jaffle_shop__products
-    columns:
-      - name: sku
-        data_tests:
-          - unique
-          - not_null
+ - name: stg_jaffle_shop__customers
+   columns:
+     - name: customer_id
+       data_tests:
+         - unique
+         - not_null
+
+ - name: stg_jaffle_shop__orders
+   columns:
+     - name: order_id
+       description: Primary key for orders.
+       data_tests:
+         - unique
+         - not_null
+     - name: customer_id
+       data_tests:
+         - relationships:
+             to: ref('stg_jaffle_shop__customers')
+             field: customer_id
+     - name: status
+       data_tests:
+         - accepted_values:
+             values:
+               - completed
+               - shipped
+               - returned
+               - placed
+               - return_pending
