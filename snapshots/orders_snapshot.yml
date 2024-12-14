@@ -1,0 +1,12 @@
+snapshots:
+ - name: orders_snapshot
+   description: Full snapshot of Jaffle Shop orders table using timestamp strategy.
+   relation: source('jaffle_shop', 'orders')
+   config:
+     database: analytics
+     schema: snapshots
+     strategy: timestamp
+     unique_key: id
+     updated_at: _etl_loaded_at
+     hard_deletes: invalidate
+     dbt_valid_to_current: "to_date('9999-12-31')"
