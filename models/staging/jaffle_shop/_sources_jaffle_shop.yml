@@ -1,10 +1,14 @@
 sources:
+  - name: jaffle_shop_new
+    database: raw
+    schema: jaffle_shop_new
+    tables:
+      - name: products
   - name: jaffle_shop
     database: raw
     schema: jaffle_shop
     tables:
       - name: customers
-      - name: products
       - name: orders
         freshness: # default freshness
           warn_after: {count: 15, period: day}
