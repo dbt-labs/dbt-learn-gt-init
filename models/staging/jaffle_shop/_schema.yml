@@ -1,12 +1,13 @@
 models:
   - name: stg_jaffle_shop__customers
-    description: description
+    description: Contains information about a customer
     columns:
       - name:  customer_id
         data_tests:
         - unique
         - not_null
   - name: stg_jaffle_shop__orders
+    description: One record per order
     columns:
       - name: order_id
         data_tests:

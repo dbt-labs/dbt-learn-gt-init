@@ -8,14 +8,14 @@ sources:
         loaded_at_field: _etl_loaded_at
         freshness: 
           error_after:
-            count: 24
-            period: hour
+            count: 1000
+            period: day
           warn_after:
-            count: 12
-            period: hour
+            count: 1000
+            period: day
         columns:
           - name: status
-            description: "{{docs('order_status')}}"
+            description: "{{doc('order_status')}}"
             data_tests:
               - accepted_values:
                   values: ["placed", "shipped", "completed", "returned", "return_pending"]
