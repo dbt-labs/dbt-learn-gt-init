@@ -1,0 +1,16 @@
+models:
+  - name: stg_jaffle_shop__customers
+    description: Contains information about a customer
+    columns:
+      - name: customer_id
+        data_tests:
+          - unique
+          - not_null
+  - name: stg_jaffle_shop__orders
+    description: Contains information about orders
+    columns:
+      - name: order_id
+        data_tests:
+          - unique
+          - not_null
+          
