@@ -5,3 +5,16 @@ sources:
     tables:
       - name: customers
       - name: orders
+        loaded_at_field: _etl_loaded_at
+        freshness: 
+          error_after:
+            count: 2
+            period: day
+          warn_after:
+            count: 12
+            period: day
+        columns:
+          - name: status
+            data_tests:
+              - accepted_values:
+                  values: ["placed", "shipped", "completed", "returned", "return_pending"]
