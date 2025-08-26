@@ -16,6 +16,7 @@ customer_orders as (
         customer_id,
 
         min(order_date) as first_order_date,
+        min(order_date) as first_order_date_2,
         max(order_date) as most_recent_order_date,
         count(order_id) as number_of_orders
 
