@@ -1,10 +1,15 @@
 sources:
   - name: jaffle_shop
+    description: replica of the postgres database
     database: raw
     schema: jaffle_shop
     tables:
       - name: customers
+        columns:
+          - name: id
+            description: primary_key
       - name: orders
+        description: one record per order
         freshness:
           warn_after:
             count: 12
