@@ -2,9 +2,9 @@ version: 2
 
 sources:
   - name: jaffle_shop
-    schema: raw
+    database: raw  
+    schema: jaffle_shop  
     tables:
-      - name: customers
       - name: orders
         freshness:
           warn_after:
@@ -14,3 +14,9 @@ sources:
             count: 24
             period: hour
         loaded_at_field: _etl_loaded_at
+      - name: customers
+        columns:
+          - name: id
+            data_tests:
+              - unique
+              - not_null
