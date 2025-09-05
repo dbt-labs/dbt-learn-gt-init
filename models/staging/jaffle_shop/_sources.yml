@@ -1,9 +1,11 @@
  sources:
   - name: jaffle_shop
+    description: replica of database
     database: raw  
     schema: jaffle_shop  
     tables:
       - name: orders
+        description: one record per order
         freshness:
           warn_after:
             count: 12
@@ -12,4 +14,11 @@
             count: 24
             period: hour
         loaded_at_field: loaded_at_field
+
       - name: customers
+        description: one record per customer
+        columns:
+        - name: id
+          data_tests:
+            - unique
+            - not_null
