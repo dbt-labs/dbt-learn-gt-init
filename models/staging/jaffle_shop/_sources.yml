@@ -12,3 +12,4 @@ sources:
              count: 24
              period: hour
         loaded_at_field: _etl_loaded_at
+      - name: customers
