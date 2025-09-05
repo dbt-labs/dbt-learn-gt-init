@@ -1,0 +1,22 @@
+models:
+  - name: stg_jaffle_shop__customers
+    description: description
+    columns:
+        - name: customer_id
+          tests:
+            - unique 
+            - not_null
+
+  - name: stg_jaffle_shop__orders
+    description: description
+    columns:
+        - name: order_id
+          tests:
+            - unique 
+            - not_null
+        - name: status
+          tests:
+            - accepted_values: 
+                arguments:
+                    values: ['placed','shipped','completed','returned','return_pending']
+              
