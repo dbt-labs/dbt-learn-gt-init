@@ -1,20 +1,23 @@
 models:
   - name: stg_jaffle_shop__customers
-    description: description
+    description: One record per customer 
     columns:
         - name: customer_id
+          description: Primary Key
           tests:
             - unique 
             - not_null
 
   - name: stg_jaffle_shop__orders
-    description: description
+    description: One record per order 
     columns:
         - name: order_id
+          description: Primary Key
           tests:
             - unique 
             - not_null
         - name: status
+          description: "{{doc ('order_status') }}"
           tests:
             - accepted_values: 
                 arguments:

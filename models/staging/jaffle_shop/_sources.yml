@@ -4,17 +4,21 @@ sources:
     schema: jaffle_shop
     tables:
       - name: customers
+        description: One record per customer
         identifier: customers
         columns:
           - name: id
+            description: Primary Key 
             tests:
               - unique
               - not_null
               
       - name: orders 
+        description: One record per order 
         identifier: orders
         columns:
           - name: id
+            description: Primary Key
             tests:
               - unique
               - not_null
