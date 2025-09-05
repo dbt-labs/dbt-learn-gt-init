@@ -4,6 +4,7 @@ sources:
     schema: jaffle_shop  
     tables:
       - name: orders
+        description: one record per order
         freshness:
            warn_after:
              count: 12
@@ -13,3 +14,9 @@ sources:
              period: hour
         loaded_at_field: _etl_loaded_at
       - name: customers
+        columns:
+          - name: id
+            description: primary key
+            data_tests:
+              - unique
+              - not_null
