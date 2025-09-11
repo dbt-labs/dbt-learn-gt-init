@@ -13,5 +13,6 @@ sources:
          warn_after:
            count: 120
            period: day
+       loaded_at_field: _etl_loaded_at
      
  
