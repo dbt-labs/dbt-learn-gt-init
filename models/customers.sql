@@ -21,6 +21,18 @@ orders as (
 
 ),
 
+number_of_customer_orders_daily as (
+
+    select
+        
+        count(user_id) as number_of_customers,
+        order_date
+
+    from raw.jaffle_shop.orders
+    group by order_date
+
+),
+
 customer_orders as (
 
     select
@@ -41,7 +53,7 @@ final as (
 
     select
         customers.customer_id,
-        customers.first_name,
+        customers.first_name as preferred_name,
         customers.last_name,
         customer_orders.first_order_date,
         customer_orders.most_recent_order_date,
