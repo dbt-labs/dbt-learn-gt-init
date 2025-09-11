@@ -1,14 +1,16 @@
 version: 2
 models:
   - name: stg_customers
+    description: Staged customer data from our jaffle shop app
     columns:
       - name: customer_id
         data_tests:
           - unique
           - not_null
   - name: stg_orders
+    description: Staged order data from our jaffle shop app.
     columns:
-      - name: order_id
+      - name: order_ids
         description: Primary key for orders
         data_tests:
           - relationships:

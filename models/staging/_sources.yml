@@ -7,11 +7,11 @@ sources:
      - name: customers
      - name: orders
        freshness: 
-       error_after:
-         count: 180
-         period: day
-       warn_after:
-         count: 120
-         period: day
+         error_after:
+           count: 180
+           period: day
+         warn_after:
+           count: 120
+           period: day
      
  
