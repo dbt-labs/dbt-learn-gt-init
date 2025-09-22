@@ -14,12 +14,13 @@ models:
       - name: status
         data_tests:
           - accepted_values:
-              values:
-                - "returned"
-                - "completed"
-                - "return_pending"
-                - "placed"
-                - "shipped"
+              arguments:
+                values:
+                  - "returned"
+                  - "completed"
+                  - "return_pending"
+                  - "placed"
+                  - "shipped"
   - name: stg_jaffle_shop__products
     columns:
       - name: sku
