@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: customers
+    description: ""
+    columns:
+      - name: customer_id
+        data_type: number
+        description: ""
+      - name: customer_name
+        data_type: text
+        description: "Primary key"
+        data_tests:
+          - unique
+          - not_null
+
+        - name: first_name
+          data_type: varchar
+          description:""
