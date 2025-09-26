@@ -4,8 +4,7 @@ with customers as (
         id as customer_id,
         first_name,
         last_name
-
-    from {{Source('jaffle_shop', 'customers')}}
+    from {{ source('jaffle_shop', 'customers') }}
 
 ),
 
