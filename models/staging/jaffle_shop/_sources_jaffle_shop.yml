@@ -1,8 +1,9 @@
 version: 2
 
 sources:
-  - name: jaffle_shop
+  - name: jaffle_shop  # default as the schema name, otherwise it is an alias to the schemma
     database: raw
+    schema: jaffle_shop # optional (since most time people use name above)
     tables:
       - name: customer_web_activity
       - name: customers
