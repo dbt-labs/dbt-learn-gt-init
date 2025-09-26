@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: jaffle_shop # this is the source_name
+    database: raw
+
+    tables:
+      - name: customers # this is the table_name
+      - name: orders
