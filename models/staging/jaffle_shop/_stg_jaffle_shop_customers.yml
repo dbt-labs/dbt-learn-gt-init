@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: stg_jaffle_shop__customers
+    description: "One customer per record"
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: customer_id
+        data_type: number
+        description: "Primary key"
+        data_tests:
+          - unique
+          - not_null
+          
+
+      - name: first_name
+        data_type: varchar
+        description: ""
+
+      - name: last_name
+        data_type: varchar
+        description: ""
