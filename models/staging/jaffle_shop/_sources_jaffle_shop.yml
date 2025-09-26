@@ -1,6 +1,7 @@
 sources:
   - name: jaffle_shop
     database: raw
+    ## schema: ra1249 # add to make it more readable or it will use name above as default
     tables:
       - name: customer_web_activity
       - name: customers
