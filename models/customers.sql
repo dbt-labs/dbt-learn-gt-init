@@ -40,7 +40,7 @@ customer_orders as (
 final as (
 
     select
-        customers.customer_id as id,
+        customers.customer_id,
         customers.first_name,
         customers.last_name,
         customer_orders.first_order_date,
