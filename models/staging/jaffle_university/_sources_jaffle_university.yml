@@ -1,0 +1,10 @@
+sources:
+  - name: jaffle_university
+    database: raw
+    tables:
+      - name: courses
+      - name: departments
+      - name: enrollments
+      - name: instructors
+      - name: semesters
+      - name: students
