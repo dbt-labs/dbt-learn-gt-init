@@ -1,6 +1,6 @@
 -- dimension: instructors
 with instructors as (
-    select * from {{ ref('stg_instructors') }}
+    select * from {{ ref('stg_jaffle_university__instructors') }}
     ) 
 select
     instructor_id,
