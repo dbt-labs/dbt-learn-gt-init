@@ -4,7 +4,7 @@ with courses as (
 select
     course_id,
     course_code,
-    title,
+    course_title,
     dept_id,
     credits
 from courses

@@ -3,7 +3,12 @@ with enrollments as (
     select * from {{ ref('stg_jaffle_university__enrollments') }}
     )
 
-select enrollment_id, student_id, course_id, grade,
+select 
+    enrollment_id, 
+    student_id, 
+    course_id,
+    instructor_id, 
+    grade,
     case
         when grade in ('A') then 4.0
         when grade in ('A-') then 3.7

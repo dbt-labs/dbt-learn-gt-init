@@ -21,7 +21,7 @@ offerings as (
 select
     offerings.course_id,
     offerings.semester_id,
-    courses.title,
+    courses.course_title,
     courses.dept_id,
     courses.credits as course_default_credits,
     offerings.num_instructors,

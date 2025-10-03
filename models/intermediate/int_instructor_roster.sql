@@ -16,8 +16,8 @@ instr_enroll as (
 )
 select
     instructors.instructor_id,
-    instructors.first_name,
-    instructors.last_name,
+    instructors.instructor_first_name,
+    instructors.instructor_last_name,
     instr_enroll.semester_id,
     coalesce(instr_enroll.enrollments_taught,0) as enrollments_taught,
     round(coalesce(instr_enroll.pct_high_grades,0),3) as pct_high_grades
