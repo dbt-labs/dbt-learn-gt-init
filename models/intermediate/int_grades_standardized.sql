@@ -1,6 +1,9 @@
 -- intermediate: normalize grade notation and map to numeric scale
-with g as (
-    select enrollment_id, student_id, course_id, grade,
+with enrollments as (
+    select * from {{ ref('stg_jaffle_university__enrollments') }}
+    )
+
+select enrollment_id, student_id, course_id, grade,
     case
         when grade in ('A') then 4.0
         when grade in ('A-') then 3.7
@@ -14,6 +17,4 @@ with g as (
         when grade in ('F') then 0.0
         else null
     end as grade_points
-    from {{ ref('stg_enrollments') }}
-)
-select * from g
+    from enrollments
