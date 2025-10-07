@@ -1,0 +1,25 @@
+sources:
+  - name: jaffle_shop
+    database: raw  
+    schema: jaffle_shop  
+
+    tables:
+      - name: orders
+        description: One row per order from our jaffle_shop
+        columns:
+          - name: id
+            description: Unique identifier per order
+            data_test:
+              - not_null
+              - unique 
+      - name: customers
+        description: One row per customer from our jaffle_shop
+        columns:
+          - name: id
+            description: Unique identifier per customer
+            data_tests:
+              - not_null
+              - unique:
+                  config:
+                    severity: warn
+              
