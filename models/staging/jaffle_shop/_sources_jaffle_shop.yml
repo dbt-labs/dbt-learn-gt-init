@@ -5,14 +5,18 @@ sources:
     
     tables:
       - name: orders
+        description: One Row per Order from our jaffle_shop
         columns:
           - name: id
+            description: Unique Identifer per customer
             data_tests:
               - not_null
               - unique
       - name: customers
+        description: One Row per customer from our jaffle_shop
         columns:
           - name: id
+            description: Unique Identifer per customer
             data_tests:
               - not_null
               - unique:
