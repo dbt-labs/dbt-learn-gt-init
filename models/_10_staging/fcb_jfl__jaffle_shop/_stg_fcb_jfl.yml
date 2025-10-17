@@ -1,0 +1,7 @@
+models:
+  - name: stg_src_jfl__customers
+    description: This is a description of what the customers table does
+    columns:
+      - name: customer_id
+        description: "{{ doc('customer_id')}}"
+        
