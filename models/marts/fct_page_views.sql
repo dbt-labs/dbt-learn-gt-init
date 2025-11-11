@@ -1,5 +1,11 @@
+{{
+    config(
+        tags='nightly'
+    )
+}}
+
 with events as (
-    select * from {# {{ ref('stg_snowplow__events') }} #}
+    select * from {{ ref('stg_snowplow__events') }}
 ),
 page_views as (
     select * from events
