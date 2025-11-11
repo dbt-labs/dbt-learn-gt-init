@@ -1,0 +1,7 @@
+version: 2
+
+sources:
+  - name: snowplow
+    database: raw
+    tables:
+      - name: events

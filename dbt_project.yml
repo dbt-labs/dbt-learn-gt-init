@@ -24,6 +24,8 @@ clean-targets:         # directories to be removed by `dbt clean`
     - "target"
     - "dbt_modules"
 
+vars:
+  the_distant_future: '2099-12-31'  
 
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
