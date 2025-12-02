@@ -1,0 +1,24 @@
+models:
+  - name: stg_jaffle_shop__customers
+    columns:
+      - name: customer_id #checks that the primary key (customer_id) has unique and non null values. Testing the primary key should be standard practice
+        data_tests: 
+          - unique
+          - not_null
+  
+  - name: stg_jaffle_shop__orders
+    columns:
+      - name: order_id
+        data_tests:
+          - unique
+          - not_null
+      - name: status
+        data_tests:
+          - accepted_values: # This checks that the order_status column only has the following values and no more
+              arguments:
+                values: ['placed', 'shipped', 'completed', 'returned', 'return_pending']
+      - name: customer_id # The column we are testing
+        data_tests:
+          - relationships: # Checks that each value in 'name' appears in 'field' of 'to' i.e. checks that each customer_id in orders appears in stg_jaffle_shop__customers
+              field: customer_id
+              to: ref('stg_jaffle_shop__customers')
