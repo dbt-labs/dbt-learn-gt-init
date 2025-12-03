@@ -1,18 +1,23 @@
 models:
   - name: stg_jaffle_shop__customers
+    description: one unique customer per row
     columns:
       - name: customer_id #checks that the primary key (customer_id) has unique and non null values. Testing the primary key should be standard practice
+        description: the primary key for the staging customers table
         data_tests: 
           - unique
           - not_null
   
   - name: stg_jaffle_shop__orders
+    description: one order per row
     columns:
       - name: order_id
+        description: the primary key for the staging orders table
         data_tests:
           - unique
           - not_null
       - name: status
+        description: "{{ doc('order_status') }}" # This is a doc block
         data_tests:
           - accepted_values: # This checks that the order_status column only has the following values and no more
               arguments:
