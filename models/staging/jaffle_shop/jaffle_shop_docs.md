@@ -1,8 +1,8 @@
 {% docs order_status %}
 
-A doc block via a mark down (.md) file allows you to write verbose documentation.
+A doc block via a mark down .md file allows you to write verbose documentation.
 
-A doc block can be referred to within a source yaml file by using: description: "{{ doc('order_status') }}" for example#
+A doc block can be referred to within a source yaml file by using
 
 Important to use the doc block name and not the file name since there might be multiple doc blocks within a single mark down file
 

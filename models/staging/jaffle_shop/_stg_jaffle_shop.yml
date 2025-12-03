@@ -25,5 +25,6 @@ models:
       - name: customer_id # The column we are testing
         data_tests:
           - relationships: # Checks that each value in 'name' appears in 'field' of 'to' i.e. checks that each customer_id in orders appears in stg_jaffle_shop__customers
-              field: customer_id
-              to: ref('stg_jaffle_shop__customers')
+              arguments:
+                to: ref('stg_jaffle_shop__customers')
+                field: customer_id
