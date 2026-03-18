@@ -1,0 +1,35 @@
+models:
+  - name: stg_jaffle_shop__orders
+    description: "Staging model for jaffle_shop.orders"
+    columns:
+      - name: order_id
+        description: "The unique identifier for each order."
+        data_tests:
+          - unique
+          - not_null
+      - name: customer_id
+        description: "The unique identifier for each customer who placed the order."
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('stg_jaffle_shop__customers')
+                field: customer_id
+      - name: order_date
+        description: "The date when the order was placed."
+      - name: order_status
+        description: "{{doc('order_status')}}"
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['placed', 'shipped', 'completed', 'returned', 'return_pending']
+      - name: _etl_loaded_at
+        description: "Timestamp indicating when the record was loaded into the staging table."
+
+  - name: stg_jaffle_shop__customers
+    description: "Staging model for jaffle_shop.customers"
+    columns:
+      - name: customer_id
+        description: "The unique identifier for each customer."
+        data_tests:
+          - unique
+          - not_null

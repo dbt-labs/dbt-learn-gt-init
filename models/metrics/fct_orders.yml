@@ -1,0 +1,30 @@
+semantic_models:
+
+  - name: fct_orders
+    model: ref('fct_orders')
+    description: "Fact table containing order information, including payment status and amount."
+    entities:
+      - name: order_id
+        type: primary
+    dimensions:
+      - name: order_status
+        type: categorical
+      - name: order_date
+        type: time
+        type_params:
+          time_granularity: day
+    measures:
+      - name: revenue
+        agg: sum
+        expr: payment_amount
+      - name: order_count
+        agg: count
+        expr: order_id
+    
+metrics:
+  - name: "order_count"
+    label: "order_count"
+    description: the number of orders placed
+    type: simple
+    type_params: 
+      measure: order_count 

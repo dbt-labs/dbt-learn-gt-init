@@ -1,0 +1,17 @@
+sources:
+  - name: jaffle_shop
+    database: project-77fd815e-f36b-40a0-907
+    schema: jaffle_shop
+    tables:
+      - name: customers
+        columns:
+          - name: id
+            data_tests:
+              - not_null
+              - unique
+      - name: orders
+        config:
+          freshness:
+            warn_after: {count: 24, period: hour}
+            error_after: {count: 48, period: hour}
+          loaded_at_field: _etl_loaded_at

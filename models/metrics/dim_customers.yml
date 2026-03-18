@@ -1,0 +1,17 @@
+semantic_models:
+
+  - name: dim_customer
+    model: ref('dim_customer')
+    entities:
+      - name: customer
+        type: primary
+        expr: customer_id
+    dimensions:
+      - name: most_recent_order_date
+        type: time
+        type_params:
+          time_granularity: day
+    measures:
+      - name: number_of_orders
+        agg: sum
+        expr: number_of_orders

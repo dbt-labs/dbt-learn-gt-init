@@ -1,0 +1,11 @@
+default:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: oauth                      # Uses your ADC credentials
+      project: project-77fd815e-f36b-40a0-907
+      dataset: jaffle_shop
+      impersonate_service_account: dbt-muthia@project-77fd815e-f36b-40a0-907.iam.gserviceaccount.com
+      threads: 4
+      timeout_seconds: 300
