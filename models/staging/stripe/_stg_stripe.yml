@@ -1,0 +1,21 @@
+models:
+  - name: stg_stripe__payments
+    description: "Staging model for Stripe payments with normalized names and currency units in dollars."
+    columns:
+      - name: payment_id
+        description: "Primary key for the payment record."
+        data_tests:
+          - unique
+          - not_null
+      - name: order_id
+        description: "Order identifier associated with the payment."
+        data_tests:
+          - not_null
+      - name: payment_method
+        description: '{{ doc("stripe_payment_method") }}'
+      - name: status
+        description: '{{ doc("stripe_payment_status") }}'
+      - name: amount
+        description: "Payment amount in dollars (converted from cents)."
+      - name: created_at
+        description: "Timestamp when the payment was created in Stripe."
