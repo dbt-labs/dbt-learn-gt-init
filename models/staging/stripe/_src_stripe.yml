@@ -1,0 +1,33 @@
+sources:
+  - name: stripe
+    description: "Source data for the stripe project"
+    database: raw
+    schema: stripe
+    tables:
+      - name: payment
+        description: "Raw payment data from stripe"
+        columns:
+          - name: id
+            description: "Primary key of the raw payment record."
+            data_tests:
+              - unique
+              - not_null
+          - name: orderid
+            description: "Order identifier linked to the payment."
+          - name: paymentmethod
+            description: "Raw payment method value from Stripe."
+          - name: status
+            description: "Raw payment processing status from Stripe."
+          - name: amount
+            description: "Payment amount in cents in the raw source."
+          - name: created
+            description: "Creation timestamp of the payment event."
+        config:
+          freshness:
+            warn_after:
+              count: 12
+              period: hour
+            error_after: 
+              count: 1
+              period: day
+          loaded_at_field: (_batched_at::timestamp_tz)

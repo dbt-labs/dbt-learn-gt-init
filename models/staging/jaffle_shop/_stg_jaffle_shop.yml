@@ -1,0 +1,43 @@
+models:
+ - name: stg_jaffle_shop__customers
+   description: "Staging model for customers data from jaffle_shop"
+   columns:
+     - name: customer_id
+       description: "Unique identifier for each customer"
+       data_tests:
+         - unique
+         - not_null
+ - name: stg_jaffle_shop__orders
+   description: "Staging model for orders data from jaffle_shop"
+   columns:
+    - name: order_id
+      description: "Unique identifier for each order"
+      data_tests:
+        - unique
+        - not_null
+    - name: status
+      description: '{{ doc("order_status") }}'
+      data_tests:
+        - accepted_values:
+            arguments:
+              values: ['placed', 'shipped', 'completed', 'returned', 'return_pending']
+    - name: customer_id
+      description: "Identifier for the customer who made the order"
+      data_tests:
+        - relationships:
+            arguments:
+              to: ref('stg_jaffle_shop__customers')
+              field: customer_id
+     
+
+#  - name: stg_jaffle_shop__orders
+#    description: "Staging model for orders data from jaffle_shop"
+#    columns:
+#      - name: id
+#        description: "Unique identifier for each order"
+#      - name: user_id
+#        description: "Identifier for the customer who made the order"
+#      - name: order_date
+#        description: "Date when the order was placed"
+#      - name: status
+#        description: "Current status of the order"
