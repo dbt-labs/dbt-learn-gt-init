@@ -1,5 +1,6 @@
 {
   "recommendations": [
-    "dbtLabsInc.dbt"
+    "dbtLabsInc.dbt",
+    "redhat.vscode-yaml"
   ]
 }

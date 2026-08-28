@@ -1,32 +1,30 @@
 
 with orders as (
-
     select * from {{ref('stg_jaffle_shop__orders')}}
-
 ),
-
 
 payments as (
-    
     select * from {{ref('stg_stripe__payments')}}
-    where payment_status <> 'fail'
 ),
 
-
-
+order_payments as (
+    select 
+        order_id,
+        sum(case when payment_status = 'success' then amount end) as amount
+    from payments
+    group by 1
+),
 
 final as (
-
     select
         orders.order_id,
         orders.customer_id,
-        payments.amount,
         orders.order_date,
-        orders.order_status
+        orders.order_status,
+        coalesce(order_payments.amount, 0) as amount
 
     from orders
-
-    left join payments using (order_id)
+    left join order_payments using (order_id)
 
 )
 
