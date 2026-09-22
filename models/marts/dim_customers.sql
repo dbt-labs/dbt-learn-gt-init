@@ -1,3 +1,6 @@
+{% block name %}
+    
+{% endblock %}
 with customers as (
 
     select
