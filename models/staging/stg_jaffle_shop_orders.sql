@@ -7,4 +7,4 @@ select
     status,
   _etl_loaded_at
 
-from raw.jaffle_shop.orders
+FROM {{ source('jaffle_shop', 'orders') }}

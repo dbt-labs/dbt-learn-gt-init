@@ -1,0 +1,40 @@
+version: 2
+
+models:
+  - name: stg_jaffle_shop_customers
+    description: ""
+    columns:
+      - name: id
+        data_type: number
+        description: ""
+
+      - name: first_name
+        data_type: varchar
+        description: ""
+
+      - name: last_name
+        data_type: varchar
+        description: ""
+
+  - name: stg_jaffle_shop_orders
+    description: ""
+    columns:
+      - name: order_id
+        data_type: number
+        description: ""
+
+      - name: customer_id
+        data_type: number
+        description: ""
+
+      - name: order_date
+        data_type: date
+        description: ""
+
+      - name: status
+        data_type: varchar
+        description: ""
+
+      - name: _etl_loaded_at
+        data_type: timestamp_ntz
+        description: ""

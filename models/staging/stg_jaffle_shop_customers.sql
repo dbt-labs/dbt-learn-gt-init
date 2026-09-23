@@ -2,4 +2,4 @@
 
 select
     *
-from raw.jaffle_shop.customers
+from {{ source('jaffle_shop', 'customers') }}
