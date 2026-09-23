@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: stg_jaffle_shop__customers
+    description: "Cleaned customer records from the Jaffle Shop application."
+    columns:
+      - name: customer_id
+        description: "Unique identifier for the customer."
+      - name: first_name
+        description: "Customer's first name."
+      - name: last_name
+        description: "Customer's last name."
+
+  - name: stg_jaffle_shop__orders
+    description: "Cleaned order records from the Jaffle Shop application."
+    columns:
+      - name: order_id
+        description: "Unique identifier for the order."
+      - name: customer_id
+        description: "Identifier for the customer who placed the order."
+      - name: order_date
+        description: "Date the order was placed."
+      - name: status
+        description: '{{ doc("order_status") }}'
+        data_tests:
+          - accepted_values:
+              arguments: 
+                values: ['placed','shipped','completed','returned']
+
+
+      - name: _etl_loaded_at
+        description: "Timestamp when the order record was loaded into the warehouse."
