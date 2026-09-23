@@ -5,5 +5,15 @@ sources:
     database: raw
     schema: jaffle_shop
     tables:
-      - name: customers
+      - name: customers       
       - name: orders
+        config:
+           freshness:
+            warn_after:
+              count: 1
+              period: day
+            error_after:
+              count: 24
+              period: day
+           loaded_at_field: _etl_loaded_at
+           
