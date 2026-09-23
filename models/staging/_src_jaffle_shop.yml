@@ -5,4 +5,22 @@ sources:
     database: raw
     tables:
     - name: customers
+      columns:
+        - name: id
+          data_tests:
+            - not_null
+            - unique
+        - name: first_name
+        - name: last_name
+
     - name: orders
+      config: 
+        freshness: 
+          warn_after: 
+            count: 1
+            period: day
+          error_after: 
+            count: 22
+            period: day
+          loaded_at_field: _etl_loaded_at
+
