@@ -1,0 +1,29 @@
+models:
+  - name: stg_jaffle_shop__customers
+    description: The people who like jaffles
+    columns:
+    - name: customer_id
+      description: Primary key for customers
+      data_tests:
+        - unique
+        - not_null
+
+  - name: stg_jaffle_shop__orders
+    description: Jaffle Orders
+    columns:
+    - name: order_id
+      data_tests:
+        - unique
+        - not_null
+    - name: customer_id
+      description: Foreign key to customers
+      data_tests:
+        - relationships:
+            arguments:
+              to: ref('stg_jaffle_shop__customers')
+              field: customer_id 
+    - name: status
+      data_tests:
+        - accepted_values:
+            arguments:
+              values: ['placed', 'shipped', 'completed', 'returned', 'return_pending']
