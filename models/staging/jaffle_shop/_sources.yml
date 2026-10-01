@@ -4,6 +4,11 @@ sources:
     schema: jaffle_shop
     tables:
       - name: customers
+        columns:
+          - name: id
+            data_tests:
+              - not_null
+              - unique   
       - name: orders
         config: 
           freshness:

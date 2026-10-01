@@ -1,0 +1,39 @@
+models:
+  - name: stg_jaffle_shop__customers
+    description: Jaffle shop customer data
+    columns:
+    - name: customer_id
+      description: unique customer identifier
+      data_tests:
+        - not_null
+        - unique
+    - name: first_name
+      description: first name of a customer
+    - name: last_name
+      description: last name of a customer
+
+  - name: stg_jaffle_shop__orders
+    description: order data
+    columns:
+    - name: order_id
+      description: col_description
+      data_tests:
+        - not_null
+        - unique
+    - name: customer_id
+      description: customer identifier
+      data_tests:
+      - relationships:
+          to: ref('stg_jaffle_shop__customers')
+          field: customer_id
+    - name: order_date
+      description: date of the order
+    - name: status
+      description: "{{ doc('order_status') }}"
+      data_tests:
+      - accepted_values:
+          arguments:
+            values: ['placed', 'shipped', 'completed', 'returned', 'return_pending']
+    - name: _etl_loaded_at
+      description: system load datetime
+    
